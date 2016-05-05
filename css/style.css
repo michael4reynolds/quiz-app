@@ -6,6 +6,12 @@ body {
     width: 15em;
     margin: 0 auto;
     background-color: #F2EDDB;
-    padding: 1px .5em;
+    /*padding: 1px .5em;*/
 }
 
+header {
+    background-image: url('../img/tennis-banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+}
