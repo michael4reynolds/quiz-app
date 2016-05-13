@@ -1,0 +1,80 @@
+html {
+  box-sizing: border-box; }
+
+*, *::before, *::after {
+  box-sizing: inherit; }
+
+img {
+  background-color: transparent; }
+
+body {
+  background-color: #943f2e; }
+
+header {
+  background: url("../../img/tennis-banner.jpg");
+  background-size: cover;
+  height: 250px; }
+
+.container {
+  margin: 0 auto;
+  max-width: 680px; }
+
+.instructions {
+  background-color: #131911;
+  max-height: 260px;
+  padding: 1em; }
+  .instructions h3 {
+    color: #75896f; }
+  .instructions p {
+    color: #cdcfc6; }
+
+.btn {
+  background-color: #88a036;
+  border-radius: .5em;
+  color: #cdcfc6;
+  margin: 1.5em auto;
+  max-width: 160px;
+  padding: 1em;
+  text-align: center; }
+
+.quiz {
+  background-color: #2d5c2d;
+  padding: 50px 10px; }
+
+.board {
+  text-align: center; }
+
+.question {
+  color: #cdcfc6; }
+
+.choices {
+  display: flex;
+  justify-content: center; }
+
+.bar {
+  border: .15em solid #cdcfc6;
+  margin: 0 auto 1em;
+  width: 90%; }
+
+ul {
+  list-style-type: none;
+  padding: 0; }
+
+.answer {
+  align-items: flex-end;
+  color: #cdcfc6;
+  display: flex;
+  margin-bottom: 1em; }
+
+[type="radio"] {
+  width: 35px; }
+
+label {
+  max-width: 10em; }
+
+@media screen and (max-width: 715px) {
+  header {
+    background-position: bottom center;
+    transition: all .3s; } }
+
+/*# sourceMappingURL=style.css.map */

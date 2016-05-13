@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tennis Quiz</title>
   <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700|EB+Garamond" rel="stylesheet" type="text/css">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/x-icon" href="img/tennis-favicon.ico">
-  <link rel="stylesheet" type="text/css" href="css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="compiled/css/style.css">
 </head>
 
 <body>
@@ -16,10 +16,49 @@
 
   </header>
   <div class="container">
+    <section class="instructions">
+      <h3>Directions:</h3>
+      <p>What do you know about tennis? What do you know about tennis? What do you know about tennis?</p>
+      <p>More info about tennis</p>
+      <div class="btn">Start Quiz</div>
+    </section>
+    <section class="quiz">
+      <div class="board">
+        <div class="scoreboard">
+          <h2>Score</h2>
+        </div>
+        <div class="question">
+          <p>Here is the question.</p>
+        </div>
+      </div>
+      <form class="choices">
+        <ul class="answers">
+          <div class="bar"></div>
+          <li class="answer">
+            <input type="radio">
+            <label>This is the wrong answer. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+          </li>
+          <div class="bar"></div>
+          <li class="answer">
+            <input type="radio">
+            <label>This is the right answer. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+          </li>
+          <div class="bar"></div>
+          <li class="answer">
+            <input type="radio">
+            <label>This is the wrong answer. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+          </li>
+          <div class="bar"></div>
+          <li class="answer">
+            <input type="radio">
+            <label>This is the wrong answer. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</label>
+          </li>
+        </ul>
+      </form>
+    </section>
   </div>
-
   <script src="//code.jquery.com/jquery.min.js"></script>
-  <script src="compiled/main.js"></script>
+  <script src="compiled/js/main.js"></script>
 </body>
 
 </html>
