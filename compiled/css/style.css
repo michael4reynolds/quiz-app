@@ -22,17 +22,19 @@ header {
 
 .instructions {
   background-color: #131911;
-  max-height: 260px;
+  max-height: 310px;
   padding: 1em; }
   .instructions h3 {
     color: #75896f; }
   .instructions p {
-    color: #cdcfc6; }
+    color: #cdcfc6;
+    font-size: 1.2em; }
 
 .btn {
   background-color: #88a036;
   border-radius: .5em;
   color: #cdcfc6;
+  cursor: pointer;
   font-size: 1.1em;
   font-weight: 700;
   margin: 1.5em auto;
@@ -42,20 +44,26 @@ header {
 
 .quiz {
   background-color: #2d5c2d;
-  padding: 50px 10px; }
+  padding: 30px 10px; }
 
 .board {
   text-align: center; }
 
 .question {
-  color: #cdcfc6; }
+  color: #cdcfc6;
+  font-size: 1.4em; }
 
 .choices {
   background: #224822;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 50px; }
+  padding: 40px 0; }
+
+.choice {
+  max-width: 20em;
+  min-width: 14em;
+  padding: 20px 10px; }
 
 .bar {
   border: .15em solid #cdcfc6;
@@ -69,10 +77,6 @@ ul {
 [type="radio"] {
   width: 35px; }
 
-label, .bar {
-  max-width: 20em;
-  min-width: 15em; }
-
 input[type="radio"] {
   display: none; }
 
@@ -80,8 +84,7 @@ input[type="radio"] + label {
   color: #ddd;
   cursor: pointer;
   display: block;
-  font: 14px/20px 'Open Sans', Arial, sans-serif;
-  margin-bottom: 20px;
+  font: 1.2em/1.3em 'Open Sans', Arial, sans-serif;
   padding-left: 35px;
   position: relative;
   user-select: none; }
@@ -112,7 +115,7 @@ input[type="radio"]:checked + label:before {
   header {
     background-position: bottom center;
     transition: all .3s; }
-  label, .bar {
+  .choice {
     max-width: 30em; } }
 
 /*# sourceMappingURL=style.css.map */
