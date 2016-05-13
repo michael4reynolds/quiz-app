@@ -14,6 +14,7 @@ img {
 
 body {
     background-color: #943f2e;
+    -webkit-font-smoothing: antialiased;
 }
 
 header {
@@ -45,6 +46,8 @@ header {
     background-color: #88a036;
     border-radius: .5em;
     color: #cdcfc6;
+    font-size: 1.1em;
+    font-weight: 700;
     margin: 1.5em auto;
     max-width: 160px;
     padding: 1em;
@@ -64,13 +67,12 @@ header {
     color: #cdcfc6;
 }
 
-.scoreboard {
-
-}
-
 .choices {
+    background: #224822;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    padding: 50px;
 }
 
 .bar {
@@ -84,25 +86,63 @@ ul {
     padding: 0;
 }
 
-.answer {
-    align-items: flex-end;
-    color: #cdcfc6;
-    display: flex;
-    margin-bottom: 1em;
-}
-
 [type="radio"] {
     width: 35px;
 }
 
-label {
-    max-width: 10em;
-    //min-width: 5em;
+label, .bar {
+    max-width: 20em;
+    min-width: 15em;
 }
 
-@media screen and  (max-width: 715px){
+// Checkboxes
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    color: #ddd;
+    cursor: pointer;
+    display: block;
+    font: 14px/20px 'Open Sans', Arial, sans-serif;
+    margin-bottom: 20px;
+    padding-left: 35px;
+    position: relative;
+    user-select: none;
+}
+
+input[type="radio"] + label:before {
+    border: 1px solid #88a036;
+    content: '';
+    display: block;
+    height: 20px;
+    left: 0;
+    opacity: .6;
+    position: absolute;
+    top: 0;
+    transition: all .12s, border-color .08s;
+    width: 20px;
+}
+
+input[type="radio"]:checked + label:before {
+    border-left-color: transparent;
+    border-radius: 0;
+    border-top-color: transparent;
+    left: 5px;
+    opacity: 1;
+    top: -5px;
+    transform: rotate(45deg);
+    width: 10px;
+}
+
+// Media Queries
+@media screen and (max-width: 715px) {
     header {
         background-position: bottom center;
         transition: all .3s;
+    }
+
+    label, .bar {
+        max-width: 30em;
     }
 }
