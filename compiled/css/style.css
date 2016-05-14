@@ -51,7 +51,8 @@ header {
 
 .question {
   color: #cdcfc6;
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  text-align: left; }
 
 .choices {
   background: #224822;
