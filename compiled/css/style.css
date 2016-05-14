@@ -52,7 +52,9 @@ header {
 .question {
   color: #cdcfc6;
   font-size: 1.4em;
-  text-align: left; }
+  text-align: left;
+  margin: 0 auto;
+  max-width: 85%; }
 
 .choices {
   background: #224822;
@@ -75,13 +77,13 @@ ul {
   list-style-type: none;
   padding: 0; }
 
-[type="radio"] {
+[type=radio] {
   width: 35px; }
 
-input[type="radio"] {
+input[type=radio] {
   display: none; }
 
-input[type="radio"] + label {
+input[type=radio] + label {
   color: #ddd;
   cursor: pointer;
   display: block;
@@ -90,7 +92,7 @@ input[type="radio"] + label {
   position: relative;
   user-select: none; }
 
-input[type="radio"] + label:before {
+input[type=radio] + label::before {
   border: 1px solid #88a036;
   content: '';
   display: block;
@@ -102,7 +104,7 @@ input[type="radio"] + label:before {
   transition: all .12s, border-color .08s;
   width: 20px; }
 
-input[type="radio"]:checked + label:before {
+input[type=radio]:checked + label::before {
   border-left-color: transparent;
   border-radius: 0;
   border-top-color: transparent;

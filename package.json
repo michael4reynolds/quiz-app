@@ -41,6 +41,7 @@
     "extends": "stylelint-config-standard",
     "rules": {
       "indentation": 4,
+      "number-leading-zero": "never",
       "selector-list-comma-newline-after": "always-multi-line"
     }
   }

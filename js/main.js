@@ -1,26 +1,54 @@
-let index = 1
+let _index = 0
 
 function showQuestion() {
-  $('.question').html(`<p>${questions[index].text}</p>`)
+  $('.question').html(`<p>${questions[_index].text}</p>`)
 }
 
 function showChoices() {
   $('.choices').empty()
-  let choices = questions[index].choices
+  let choices = questions[_index].choices
   for (var key in choices) {
     $('.choices').append(`
     <div class="choice">
       <div class="bar"></div>
-      <input type="radio" id="choice_${key}" name="option">
+      <input type="radio" id="choice_${key}" name="option" key=${key}>
       <label for="choice_${key}">${choices[key]}</label>
     </div>`)
   }
 }
 
+function showQuiz() {
+  $('.quiz').show()
+}
+
+function checkAnswer() {
+  let correct = questions[_index].correct
+  return $(`[key=${correct}]`).prop('checked')
+}
+
+function nextQuestion() {
+  _index++
+  if (_index > questions.length - 1) {
+    $('#next').hide()
+    return
+  }
+  showQuestion()
+  showChoices()
+}
+
 $(function () {
+  $('.quiz').hide()
+
   $('#start').on('click', function () {
     showQuestion()
     showChoices()
+    showQuiz()
+  })
+
+  $('#next').on('click', function () {
+    if (checkAnswer()) {
+      nextQuestion()
+    }
   })
 })
 
@@ -67,7 +95,7 @@ let questions = [{
 }, {
   text: 'For a professional tennis player, winning the "Grand Slams" involves achieving what feat in Tennis?',
   choices: {
-    a: 'Winning all one particluar Grand Slam tournament atleast 4 times in the career',
+    a: 'Winning all one particluar Grand Slam tournament at least 4 times in the career',
     b: 'Winning all 4 Grand Slam Tournaments in a calendar year',
     c: 'Achieveing number 1 ranking in the world',
     d: 'Winning the Davis Cup'
