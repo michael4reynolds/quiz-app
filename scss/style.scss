@@ -116,11 +116,17 @@ header {
 }
 
 .right-choice {
-    color: limegreen;
+    color: limegreen !important;
+    text-decoration: underline !important;
 }
 
 .wrong-choice {
-    color: crimson;
+    color: crimson !important;
+    text-decoration: line-through !important;
+}
+
+.explain {
+    color: aliceblue;
 }
 
 ul {

@@ -33,18 +33,26 @@ function checkNoneChecked() {
 }
 
 function checkAnswer() {
-  getCorrectChoice().prop('checked')
+  return getCorrectChoice().prop('checked')
 }
 
-function nextQuestion() {
+function showNextQuestion() {
   if (_index > questions.length - 1) {
-    _index = 0
-    $('#next').hide()
+    _index = _right = _wrong = 0
+    $('#next, #answer').hide()
     $('#start').fadeIn(500)
     return
   }
+  $('#answer').show()
+  $('#next').hide()
   showQuestion()
   showChoices()
+}
+
+function showExplanation() {
+  $('#answer').hide()
+  $('#next').show()
+  $('.explain').text(questions[_index].explanation)
 }
 
 function updateScore() {
@@ -56,33 +64,38 @@ function updateScore() {
 
 function correctChosen() {
   _right++
-  getCorrectChoice().toggleClass('right-choice')
-
 }
 
 function incorrectChosen() {
   _wrong++
-  getCorrectChoice().toggleClass('wrong-choice')
+  $('[id^=choice_]:checked').next().toggleClass('wrong-choice')
 }
 
 $(function () {
   $('.quiz').hide()
+  $('#next').hide()
 
   $('#start').on('click', function () {
     $(this).fadeOut(800)
+    $('#next').hide()
+    $('#answer').show()
     showQuestion()
     showChoices()
     updateScore()
     showQuiz()
   })
 
-  $('#next').on('click', function () {
+  $('#answer').on('click', function () {
     if (checkNoneChecked()) return
+    getCorrectChoice().next().toggleClass('right-choice')
     let correct = checkAnswer()
     correct ? correctChosen() : incorrectChosen()
-    _index++
-    updateScore(correct)
-    nextQuestion()
+    showExplanation()
+    updateScore(++_index)
+  })
+
+  $('#next').on('click', function () {
+    showNextQuestion()
   })
 })
 
