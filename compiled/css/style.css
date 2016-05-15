@@ -22,6 +22,7 @@ header {
 
 .instructions {
   background-color: #131911;
+  height: auto;
   max-height: 310px;
   padding: 1em; }
   .instructions h3 {

@@ -1,6 +1,6 @@
 'use strict';
 
-var _index = 0;
+var _index = 3;
 
 function showQuestion() {
   $('.question').html('<p>' + questions[_index].text + '</p>');
@@ -15,7 +15,7 @@ function showChoices() {
 }
 
 function showQuiz() {
-  $('.quiz').show();
+  $('.quiz').fadeIn(800);
 }
 
 function checkAnswer() {
@@ -26,7 +26,9 @@ function checkAnswer() {
 function nextQuestion() {
   _index++;
   if (_index > questions.length - 1) {
+    _index = 0;
     $('#next').hide();
+    $('#start').fadeIn(500);
     return;
   }
   showQuestion();
@@ -37,6 +39,7 @@ $(function () {
   $('.quiz').hide();
 
   $('#start').on('click', function () {
+    $(this).fadeOut(800);
     showQuestion();
     showChoices();
     showQuiz();
