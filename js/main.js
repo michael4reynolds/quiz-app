@@ -23,13 +23,17 @@ function showQuiz() {
   $('.quiz').fadeIn(800)
 }
 
+function getCorrectChoice() {
+  let correct = questions[_index].correct
+  return $(`[key=${correct}]`)
+}
+
 function checkNoneChecked() {
   return $('[id^=choice_]:checked').length < 1
 }
 
 function checkAnswer() {
-  let correct = questions[_index].correct
-  return $(`[key=${correct}]`).prop('checked')
+  getCorrectChoice().prop('checked')
 }
 
 function nextQuestion() {
@@ -50,6 +54,17 @@ function updateScore() {
   $('#togo').text(togo)
 }
 
+function correctChosen() {
+  _right++
+  getCorrectChoice().toggleClass('right-choice')
+
+}
+
+function incorrectChosen() {
+  _wrong++
+  getCorrectChoice().toggleClass('wrong-choice')
+}
+
 $(function () {
   $('.quiz').hide()
 
@@ -64,7 +79,7 @@ $(function () {
   $('#next').on('click', function () {
     if (checkNoneChecked()) return
     let correct = checkAnswer()
-    correct ? _right++ : _wrong++
+    correct ? correctChosen() : incorrectChosen()
     _index++
     updateScore(correct)
     nextQuestion()
