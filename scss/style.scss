@@ -104,8 +104,8 @@ header {
 }
 
 .choice {
-    max-width: 20em;
-    min-width: 14em;
+    flex: 1;
+    min-width: 20em;
     padding: 20px 10px;
 }
 
@@ -168,10 +168,6 @@ input[type=radio]:checked + label::before {
     header {
         background-position: bottom center;
         transition: all .3s;
-    }
-
-    .choice {
-        max-width: 30em;
     }
 }
 
