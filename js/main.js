@@ -41,6 +41,9 @@ function showNextQuestion() {
     _index = _right = _wrong = 0
     $('#next, #answer').hide()
     $('#start').fadeIn(500)
+    $('.question').empty()
+    $('.choices').empty()
+    $('.explain').html('<h2>End of Quiz</h2>')
     return
   }
   $('#answer').show()
