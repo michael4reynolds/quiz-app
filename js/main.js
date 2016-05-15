@@ -23,6 +23,10 @@ function showQuiz() {
   $('.quiz').fadeIn(800)
 }
 
+function checkNoneChecked() {
+  return $('[id^=choice_]:checked').length < 1
+}
+
 function checkAnswer() {
   let correct = questions[_index].correct
   return $(`[key=${correct}]`).prop('checked')
@@ -58,6 +62,7 @@ $(function () {
   })
 
   $('#next').on('click', function () {
+    if (checkNoneChecked()) return
     let correct = checkAnswer()
     correct ? _right++ : _wrong++
     _index++

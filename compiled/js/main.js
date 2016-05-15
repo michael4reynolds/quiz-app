@@ -20,6 +20,10 @@ function showQuiz() {
   $('.quiz').fadeIn(800);
 }
 
+function checkNoneChecked() {
+  return $('[id^=choice_]:checked').length < 1;
+}
+
 function checkAnswer() {
   var correct = questions[_index].correct;
   return $('[key=' + correct + ']').prop('checked');
@@ -55,6 +59,7 @@ $(function () {
   });
 
   $('#next').on('click', function () {
+    if (checkNoneChecked()) return;
     var correct = checkAnswer();
     correct ? _right++ : _wrong++;
     _index++;
