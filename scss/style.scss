@@ -57,6 +57,27 @@ header {
     text-align: center;
 }
 
+.scoreboard h3 {
+    background-color: #131911;
+    color: lightblue;
+    margin: 0 auto;
+    max-width: 50%;
+}
+
+#right {
+    color: limegreen;
+    margin-right: .5em;
+}
+
+#wrong {
+    color: crimson;
+    margin-right: .5em;
+}
+
+#togo {
+    color: lightslategrey;
+}
+
 .quiz {
     background-color: #2d5c2d;
     padding: 30px 10px;
@@ -153,3 +174,10 @@ input[type=radio]:checked + label::before {
         max-width: 30em;
     }
 }
+
+@media screen and (max-width: 550px) {
+    .scoreboard h3 {
+        max-width: 80%;
+    }
+}
+

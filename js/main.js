@@ -1,4 +1,6 @@
-let _index = 3
+let _index = 0
+let _right = 0
+let _wrong = 0
 
 function showQuestion() {
   $('.question').html(`<p>${questions[_index].text}</p>`)
@@ -27,7 +29,6 @@ function checkAnswer() {
 }
 
 function nextQuestion() {
-  _index++
   if (_index > questions.length - 1) {
     _index = 0
     $('#next').hide()
@@ -38,6 +39,13 @@ function nextQuestion() {
   showChoices()
 }
 
+function updateScore() {
+  let togo = questions.length - _index
+  $('#right').text(_right)
+  $('#wrong').text(_wrong)
+  $('#togo').text(togo)
+}
+
 $(function () {
   $('.quiz').hide()
 
@@ -45,13 +53,16 @@ $(function () {
     $(this).fadeOut(800)
     showQuestion()
     showChoices()
+    updateScore()
     showQuiz()
   })
 
   $('#next').on('click', function () {
-    if (checkAnswer()) {
-      nextQuestion()
-    }
+    let correct = checkAnswer()
+    correct ? _right++ : _wrong++
+    _index++
+    updateScore(correct)
+    nextQuestion()
   })
 })
 

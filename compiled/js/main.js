@@ -1,6 +1,8 @@
 'use strict';
 
-var _index = 3;
+var _index = 0;
+var _right = 0;
+var _wrong = 0;
 
 function showQuestion() {
   $('.question').html('<p>' + questions[_index].text + '</p>');
@@ -24,7 +26,6 @@ function checkAnswer() {
 }
 
 function nextQuestion() {
-  _index++;
   if (_index > questions.length - 1) {
     _index = 0;
     $('#next').hide();
@@ -35,6 +36,13 @@ function nextQuestion() {
   showChoices();
 }
 
+function updateScore() {
+  var togo = questions.length - _index;
+  $('#right').text(_right);
+  $('#wrong').text(_wrong);
+  $('#togo').text(togo);
+}
+
 $(function () {
   $('.quiz').hide();
 
@@ -42,13 +50,16 @@ $(function () {
     $(this).fadeOut(800);
     showQuestion();
     showChoices();
+    updateScore();
     showQuiz();
   });
 
   $('#next').on('click', function () {
-    if (checkAnswer()) {
-      nextQuestion();
-    }
+    var correct = checkAnswer();
+    correct ? _right++ : _wrong++;
+    _index++;
+    updateScore(correct);
+    nextQuestion();
   });
 });
 
