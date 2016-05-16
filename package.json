@@ -4,10 +4,11 @@
   "description": "",
   "main": "compiled/main.js",
   "scripts": {
-    "build-css":"node-sass -wr -o compiled/css --source-map true scss",
-    "build-js": "babel js -ws -d compiled/js --presets es2015,stage-2",
+    "build:css": "node-sass -wr -o compiled/css --source-map true scss",
+    "build:js": "babel js -ws -d compiled/js --presets es2015,stage-2",
+    "build:postcss": "postcss --config postcss.json",
     "browser-sync": "browser-sync start --server --files \"*.html, compiled/css/*.css, compiled/js/*.js\" --no-notify --no-open",
-    "compile": "npm run build-css & npm run build-js",
+    "compile": "npm run build:css & npm run build:postcss & npm run build:js",
     "run": "npm run compile & npm run browser-sync"
   },
   "keywords": [
@@ -18,10 +19,12 @@
   "author": "Michael Reynolds",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "*",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
     "babel-preset-stage-2": "*",
     "node-sass": "*",
+    "postcss-flexbugs-fixes": "*",
     "stylelint": "*",
     "stylelint-config-standard": "*"
   },
