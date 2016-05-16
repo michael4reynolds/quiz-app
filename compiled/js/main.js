@@ -45,6 +45,7 @@ function showNextQuestion() {
   }
   $('#answer').show();
   $('#next').hide();
+  $('.explain').fadeOut(500);
   showQuestion();
   showChoices();
 }
