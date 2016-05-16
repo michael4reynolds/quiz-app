@@ -43,7 +43,7 @@ function showNextQuestion() {
     $('#start').fadeIn(500)
     $('.question').empty()
     $('.choices').empty()
-    $('.explain').html('<h2>End of Quiz</h2>')
+    $('.explain').html('<img src="img/tennis-logo.png" alt="players" height="250"><h3>End of Quiz</h3>')
     return
   }
   $('#answer').show()
@@ -90,6 +90,7 @@ $(function () {
 
   $('#answer').on('click', function () {
     if (checkNoneChecked()) return
+    $('[id^=choice_]').prop('disabled', true)
     getCorrectChoice().next().toggleClass('right-choice')
     let correct = checkAnswer()
     correct ? correctChosen() : incorrectChosen()
