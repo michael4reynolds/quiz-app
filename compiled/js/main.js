@@ -40,7 +40,7 @@ function showNextQuestion() {
     $('#start').fadeIn(500);
     $('.question').empty();
     $('.choices').empty();
-    $('.explain').html('<img src="img/tennis-logo.png" alt="players" height="250"><h3>End of Quiz</h3>');
+    $('.explain').fadeIn(500).html('<img src="img/tennis-logo.png" alt="players" height="250"><h3>End of Quiz</h3>');
     return;
   }
   $('#answer').show();
@@ -53,7 +53,7 @@ function showNextQuestion() {
 function showExplanation() {
   $('#answer').hide();
   $('#next').show();
-  $('.explain').text(questions[_index].explanation);
+  $('.explain').fadeIn(500).text(questions[_index].explanation);
 }
 
 function updateScore() {
